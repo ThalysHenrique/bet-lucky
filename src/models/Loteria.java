@@ -14,8 +14,8 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
     private int resposta = 0;
 
     /**
-     * Método retorna números aleatórios
-     * Limite: 60 números (1 a 60) -> conforme números da mega sena
+     * Método retorna números aleatórios.
+     * Limite: 60 números (1 a 60) -> conforme números da mega sena.
      */
     @Override
     public void gerarNumerosAleatorios() {
@@ -25,7 +25,7 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
     }
 
     /**
-     * Método gera 6 números sorteados
+     * Método gera 6 números sorteados.
      */
     @Override
     public void gerarNumerosSorteados() {
@@ -35,7 +35,7 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
     }
 
     /**
-     * Método compara números sorteados e números inseridos pelo usuário
+     * Método compara números sorteados e números inseridos pelo usuário.
      */
     @Override
     public void compararNumeros() {
@@ -51,7 +51,9 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
     }
 
     /**
-     * Método insere os números que o usuário deseja apostar
+     * Método insere os números que o usuário deseja apostar.
+     * Tratamento de Exceção -> verifica se o usuário digitou algum caractere diferente de número,
+     * Caso sim, retorna uma mensagem informando o erro e reinicia o programa.
      */
     @Override
     public void apostar() {
@@ -69,7 +71,10 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
     }
 
     /**
-     * Método para iniciar uma nova aposta
+     * Método para iniciar uma nova aposta.
+     * Ao final da aposta, verifica se o usuário ganhou algum prémio e pergunta se ele quer realizar nova aposta.
+     * 1 -> Sim (Inicia uma nova aposta).
+     * 2 -> Não (Finaliza a execução do programa).
      */
     @Override
     public void novaAposta() {
@@ -88,7 +93,7 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
         } catch (Exception e){
             System.out.println("Resposta inválida, sessão encerrada!");
         }
-        
+
         switch (resposta){
             case 1:
                 novaAposta();
@@ -99,6 +104,12 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
         }
     }
 
+    /**
+     * Método verifica se o usuário recebeu algum prémio.
+     * 4 acertos -> Quadra, recebe R$ 877,04.
+     * 5 acertos -> Quina, recebe R$ 45.438,78.
+     * 6 acertos -> Mega Sena, recebe R$ 18.000.000,00.
+     */
     @Override
     public void verificarPremio() {
         if(acertos == 4){
