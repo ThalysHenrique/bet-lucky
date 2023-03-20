@@ -1,35 +1,25 @@
 package test;
 
-import models.Loteria;
-import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
 public class TesteLoteria {
 
-    Loteria loteria;
-
-    @Before
     @Test
-    public void inicializaLoteria(){
-        loteria = new Loteria();
-    }
-
-    @Test
-    public void testNumerosAleatoriosAte60() {
-        loteria.gerarNumerosSorteados();
-
+    public void testNumerosSorteados() {
+        Set<Integer> numerosSorteados = new HashSet<>();
         Random random = new Random();
-        int[] numerosGerados = new int[60];
-
-        for (int i = 0; i < numerosGerados.length; i++){
-            numerosGerados[i] = 1 + random.nextInt(60);
-            System.out.println(i + 1 + "º número gerado: [" + numerosGerados[i] + "]" + " ");
+        for(int i = 0; i < 6; i++){
+            int numeros = 1 + random.nextInt(60);
+            numerosSorteados.add(numeros);
         }
+        System.out.println(numerosSorteados);
 
-        assertEquals(numerosGerados.length, 60);
+        assertEquals(6, numerosSorteados.size());
     }
 }
