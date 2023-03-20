@@ -81,9 +81,14 @@ public class Loteria implements GeradorDeNumeros, ComparadorDeNumeros, Apostar {
 
         System.out.println("-> Deseja realizar nova aposta? ");
         System.out.print("-> Digite: 1 - Sim || 2 - Não ");
-        Scanner sc = new Scanner(System.in);
-        resposta = sc.nextInt();
 
+        Scanner sc = new Scanner(System.in);
+        try {
+            resposta = sc.nextInt();
+        } catch (Exception e){
+            System.out.println("Resposta inválida, sessão encerrada!");
+        }
+        
         switch (resposta){
             case 1:
                 novaAposta();
