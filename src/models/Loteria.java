@@ -18,13 +18,13 @@ public class Loteria implements GeradorDeNumeros, Apostar {
 
     /**
      * Método retorna números aleatórios.
-     * Limite: 60 números (1 a 60) -> conforme números da mega sena.
+     * Números (1 a 60)
      */
     @Override
     public void gerarNumerosSorteados() {
         for(int i = 0; i < 6; i++){
             int numeros = 1 + random.nextInt(60);
-            numerosSorteados.add(numeros); // -> Gera 60 números aleatórios a partir de 1 até 60 e guarda em uma Set List.
+            numerosSorteados.add(numeros); // -> Gera 6 números aleatórios a partir de 1 até 60 e guarda em uma Set List.
 
         }
         System.out.println(numerosSorteados);
