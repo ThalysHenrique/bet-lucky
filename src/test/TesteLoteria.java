@@ -22,4 +22,19 @@ public class TesteLoteria {
 
         assertEquals(6, numerosSorteados.size());
     }
+
+    @Test
+    public void testAcertos() {
+        Set<Integer> numerosSorteados = new HashSet<>();
+        Set<Integer> numerosApostados = new HashSet<>();
+        Random random = new Random();
+        for(int i = 0; i < 6; i++){
+            int numeros = 1 + random.nextInt(60);
+            numerosSorteados.add(numeros);
+        }
+        System.out.println(numerosSorteados);
+
+
+
+    }
 }

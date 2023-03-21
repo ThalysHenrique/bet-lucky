@@ -1,14 +1,13 @@
 package models;
 
-import interfaces.Apostar;
-import interfaces.GeradorDeNumeros;
+import interfaces.MecanicaMegaSena;
 
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Loteria implements GeradorDeNumeros, Apostar {
+public class JogoMegaSena implements MecanicaMegaSena {
 
     private Set<Integer> numerosSorteados = new HashSet<>();
     private Set<Integer> numerosApostados = new HashSet<>();
@@ -30,24 +29,6 @@ public class Loteria implements GeradorDeNumeros, Apostar {
         System.out.println(numerosSorteados);
     }
 
-    @Override
-    public void reiniciarNumerosSorteados() {
-        numerosSorteados.clear();
-    }
-
-    /**
-     * Método compara números sorteados e números inseridos pelo usuário.
-     */
-    @Override
-    public void compararNumeros() {
-        for(int i = 0; i < numerosSorteados.size(); i++){
-            if(numerosApostados.equals(numerosSorteados)){
-                acertos++; // -> Caso os números apostados forem iguais aos números sorteados, soma o acerto.
-            }
-        }
-        System.out.println("-> Você acertou: " + acertos + " número(s).");
-    }
-
     /**
      * Método insere os números que o usuário deseja apostar.
      * Tratamento de Exceção -> verifica se o usuário digitou algum caractere diferente de número,
@@ -56,6 +37,7 @@ public class Loteria implements GeradorDeNumeros, Apostar {
     @Override
     public void apostar() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("-> Jogo da Mega-Sena");
         System.out.println("-> ATENÇÃO, você deve escolher números entre 1 e 60. Boa sorte! ");
         System.out.print("-> Digite os números que deseja apostar: ");
             try {
@@ -72,6 +54,19 @@ public class Loteria implements GeradorDeNumeros, Apostar {
                 System.out.println("Ops, você deve digitar apenas NÚMEROS entre 1 e 60.");
                 System.out.println("Mas não se preocupe, você pode tentar novamente, vamos lá? ");
             }
+    }
+
+    /**
+     * Método compara números sorteados e números inseridos pelo usuário.
+     */
+    @Override
+    public void compararNumeros() {
+        for(int i = 0; i < numerosSorteados.size(); i++){
+            if(numerosApostados.equals(numerosSorteados)){
+                acertos++; // -> Caso os números apostados forem iguais aos números sorteados, soma o acerto.
+            }
+        }
+        System.out.println("-> Você acertou: " + acertos + " número(s).");
     }
 
     /**
@@ -94,12 +89,13 @@ public class Loteria implements GeradorDeNumeros, Apostar {
         try {
             resposta = sc.nextInt(); // -> Pega a resposta do usuário, 1 - inicia nova aposta e 2 - finaliza as apostas.
         } catch (Exception e){
-            System.out.println("Resposta inválida, sessão encerrada!"); // -> Caso o usuário não digite nenhuma das 2 opções, programa é encerrado.
+            System.out.println("Você digitou algo diferente, entendemos que não deseja mais apostar. Obrigado e volte sempre! :)"); // -> Caso o usuário não digite nenhuma das 2 opções, programa é encerrado.
         }
 
         switch (resposta){
             case 1:
                 reiniciarNumerosSorteados();
+                reiniciarAcertos();
                 novaAposta();
                 break;
             case 2:
@@ -131,5 +127,15 @@ public class Loteria implements GeradorDeNumeros, Apostar {
             System.out.println("****** PARABÉNS, VOCÊ É O(A) GRANDE VENCEDOR(A) DA MEGA SENA! ******");
             System.out.println("****** Valor do prémio: R$ " + premioMegaSena + " ******");
         }
+    }
+
+    @Override
+    public void reiniciarNumerosSorteados() {
+        numerosSorteados.clear();
+    }
+
+    @Override
+    public void reiniciarAcertos() {
+        acertos = 0;
     }
 }

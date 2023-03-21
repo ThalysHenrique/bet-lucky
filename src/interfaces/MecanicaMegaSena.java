@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Apostar {
+public interface MecanicaMegaSena {
 
     void apostar();
 
@@ -9,4 +9,10 @@ public interface Apostar {
     void verificarPremio();
 
     void reiniciarNumerosSorteados();
+
+    void reiniciarAcertos();
+
+    void gerarNumerosSorteados();
+
+    void compararNumeros();
 }
