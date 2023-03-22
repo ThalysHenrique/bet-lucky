@@ -17,4 +17,6 @@ public interface MecanicaDado {
     void zerarDadoUm();
 
     void zerarDadoDuplo();
+
+    void zerarNumeroApostado();
 }
