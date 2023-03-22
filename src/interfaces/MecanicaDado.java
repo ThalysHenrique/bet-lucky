@@ -8,5 +8,13 @@ public interface MecanicaDado {
 
     void jogarUmDado();
 
-    void jogarDoisDados();
+    void jogarDadoDuplo();
+
+    void resultadoUmDado();
+
+    void resultadoDadoDuplo();
+
+    void zerarDadoUm();
+
+    void zerarDadoDuplo();
 }
