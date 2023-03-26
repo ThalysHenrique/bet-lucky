@@ -14,6 +14,7 @@ public class JogoMegaSena implements MecanicaMegaSena {
     Random random = new Random();
     private int acertos = 0;
     private int resposta = 0;
+    double premioMegaSena = 10000;
 
     /**
      * Método retorna números aleatórios.
@@ -24,7 +25,6 @@ public class JogoMegaSena implements MecanicaMegaSena {
         for(int i = 0; i < 6; i++){
             int numeros = 1 + random.nextInt(60);
             numerosSorteados.add(numeros); // -> Gera 6 números aleatórios a partir de 1 até 60 e guarda em uma Set List.
-
         }
         System.out.println(numerosSorteados);
     }
@@ -96,10 +96,12 @@ public class JogoMegaSena implements MecanicaMegaSena {
             case 1:
                 reiniciarNumerosSorteados();
                 reiniciarAcertos();
+                reiniciarNumerosApostados();
                 novaAposta();
                 break;
             case 2:
-                System.out.println("##### APOSTAS ENCERRADAS, OBRIGADO E VOLTE SEMPRE! #####");
+                System.out.println("* A Bet Lucky agradece a sua presença *");
+                System.out.println("* Obrigado e volte sempre! *");
                 break;
         }
     }
@@ -111,31 +113,34 @@ public class JogoMegaSena implements MecanicaMegaSena {
      * 6 acertos -> Mega Sena, recebe R$ 182.990,00.
      */
     @Override
-    public void verificarPremio() {
-        if(acertos == 4){
-            double premioQuadra = 12.876;
-            System.out.println("**** PARABÉNS, VOCÊ ACERTOU A QUADRA ****");
-            System.out.println("**** Valor do prémio: R$ " + premioQuadra + " ****");
-        }
-        if (acertos == 5){
-            double premioQuina = 45.438;
-            System.out.println("***** PARABÉNS, VOCÊ GANHOU A QUINA *****");
-            System.out.println("***** Valor do prémio: R$ " + premioQuina + " *****");
-        }
+    public double verificarPremio() {
         if(acertos == 6){
-            double premioMegaSena = 182990;
             System.out.println("****** PARABÉNS, VOCÊ É O(A) GRANDE VENCEDOR(A) DA MEGA SENA! ******");
             System.out.println("****** Valor do prémio: R$ " + premioMegaSena + " ******");
         }
+        return premioMegaSena;
     }
 
+    /**
+     * Método reinicia os números sorteados para não haver conflito caso o usuário deseje reiniciar a partida.
+     */
     @Override
     public void reiniciarNumerosSorteados() {
         numerosSorteados.clear();
     }
 
+    /**
+     * Método reinicia os números acertados para não haver conflito caso o usuário deseje reiniciar a partida.
+     */
     @Override
     public void reiniciarAcertos() {
         acertos = 0;
+    }
+
+    /**
+     * Método reinicia números apostados para não haver conflito no resultado caso o usuário deseje reiniciar a partida.
+     */
+    public void reiniciarNumerosApostados(){
+        numerosApostados.clear();
     }
 }

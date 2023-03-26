@@ -6,7 +6,7 @@ public interface MecanicaMegaSena {
 
     void novaAposta();
 
-    void verificarPremio();
+    double verificarPremio();
 
     void reiniciarNumerosSorteados();
 

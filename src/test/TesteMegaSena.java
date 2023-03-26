@@ -1,5 +1,6 @@
 package test;
 
+import models.JogoMegaSena;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -8,7 +9,7 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
-public class TesteLoteria {
+public class TesteMegaSena {
 
     @Test
     public void testNumerosSorteados() {
@@ -33,8 +34,14 @@ public class TesteLoteria {
             numerosSorteados.add(numeros);
         }
         System.out.println(numerosSorteados);
+    }
 
+    @Test
+    public void testePremio(){
+        JogoMegaSena jms = new JogoMegaSena();
+        int acertos = 6;
+        double premio = jms.verificarPremio();
 
-
+        assertEquals(10000, premio, 0);
     }
 }

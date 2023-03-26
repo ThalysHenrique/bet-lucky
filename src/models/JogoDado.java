@@ -111,7 +111,7 @@ public class JogoDado implements MecanicaDado {
                 // impedirá que as mensagens de saída do case 2 sejam guardadas em memória e imprimidas várias vezes.
                 resposta = 0;
                 System.out.println("* A Bet Lucky agradece a sua presença *");
-                System.out.println("* Muito obrigado e volte sempre *");
+                System.out.println("* Muito obrigado e volte sempre! *");
                 break;
         }
         sc.close();
