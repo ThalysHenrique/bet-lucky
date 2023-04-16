@@ -17,18 +17,15 @@ Automaticamente será gerado 6 números aleatórios, cada número será no máxi
 Será perguntado quais números deseja apostar, informe os 6 números.
 Acertando os 6 números, será printado o prémio na tela e perguntará se deseja jogar novamente, caso contrário será perguntado se deseja jogar novamente, informe:
 
-1. Sim
-2. Não
-
-Informando o número 1, será perguntado qual jogo deseja jogar, como foi informado na <b>Linha 1</b>.
-Informando o número 2, será encerrado o programa.
+1. Sim -> será perguntado qual jogo deseja jogar, como foi informado na <b>Linha 1</b>.
+2. Não -> será encerrado o programa.
 
 > Escolhendo a 2º opção será dado inicio ao Jogo do Dado.
 
 Será perguntado quais dados deseja jogar:
 
-1. Será gerado um número aleatório até 6.
-2. Será gerado um número aleatório até 12.
+1. será gerado um número aleatório até 6.
+2. será gerado um número aleatório até 12.
 
 Será perguntado qual número deseja apostar, caso acerte, será printado que você venceu e em seguida perguntará se deseja jogar novamente:
 
