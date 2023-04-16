@@ -32,11 +32,8 @@ Será perguntado quais dados deseja jogar:
 
 Será perguntado qual número deseja apostar, caso acerte, será printado que você venceu e em seguida perguntará se deseja jogar novamente:
 
-1. Sim
-2. Não
-
-Digitando 1, será gerada uma nova partida perguntando novamente quantos dados deseja jogar.
-Digitando 2, será encerrado o programa.
+1. Sim -> será gerada uma nova partida perguntando novamente quantos dados deseja jogar.
+2. Não -> será encerrado o programa.
 
 ### Tecnologias utilizadas:
 
