@@ -2,7 +2,7 @@
 
 ### Sobre o projeto
 
-Tive a ideia de criar uma casa de apostas contendo apenas 2 jogos, sendo eles: Jogo da MegaSena e Jogo do Dado
+Tive a ideia de criar uma casa de apostas contendo apenas 2 jogos, sendo eles: Jogo da MegaSena e Jogo do Dado.
 
  #### Instruções para jogar:
  
